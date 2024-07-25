@@ -9,6 +9,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
+using TOHE.Modules;
 using TOHE.Roles.Core;
 using TOHE.Roles.Double;
 using TOHE.Roles.Neutral;
@@ -501,6 +502,7 @@ public class Main : BasePlugin
         //SpamManager.Init();
         DevManager.Init();
         Cloud.Init();
+        CommandsManager.Init();
 
         IRandom.SetInstance(new NetRandomWrapper());
 
