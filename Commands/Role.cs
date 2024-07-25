@@ -2,11 +2,9 @@
 
 namespace TOHE.Commands;
 
-using static Translator;
-
-public class Dump : CommandBase
+public class Role : CommandBase
 {
-    public override string[] Commands { get; set; } = { "version", "v" };
+    public override string[] Commands { get; set; } = { "r", "role", "р", "роль" };
 
     public override bool CanExecute(string[] args, PlayerControl player)
     {
@@ -14,8 +12,8 @@ public class Dump : CommandBase
     }
 
     public override bool Execute(string[] args, PlayerControl player)
-    {
-        Utils.DumpLog();
+    { 
+        Utils.SendRolesInfo(args[0], player.PlayerId);
         return true;
     }
 }

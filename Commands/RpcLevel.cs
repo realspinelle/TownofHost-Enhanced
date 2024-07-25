@@ -11,7 +11,7 @@ public class RpcLevel : CommandBase
 
     public override bool CanExecute(string[] args, PlayerControl player)
     {
-        return player.PlayerId == AmongUsClient.Instance.ClientId;
+        return player.PlayerId == AmongUsClient.Instance.HostId;
     }
 
     public override bool Execute(string[] args, PlayerControl player)

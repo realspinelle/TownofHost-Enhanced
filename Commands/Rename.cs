@@ -10,7 +10,7 @@ public class Rename : CommandBase
 
     public override bool CanExecute(string[] args, PlayerControl player)
     {
-        return player.PlayerId == AmongUsClient.Instance.ClientId;
+        return true;
     }
 
     public override bool Execute(string[] args, PlayerControl player)
@@ -35,6 +35,7 @@ public class Rename : CommandBase
             Utils.SendMessage(string.Format(GetString("Message.SetName"), args.Join(delimiter: " ")),
                 player.PlayerId);
         }
+
         return true;
     }
 }

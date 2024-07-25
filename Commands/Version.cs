@@ -15,28 +15,28 @@ public class Version : CommandBase
 
     public override bool Execute(string[] args, PlayerControl player)
     {
-        string version_text = "";
+        string versionText = "";
         try
         {
             foreach (var kvp in Main.playerVersion.OrderBy(pair => pair.Key).ToArray())
             {
                 var pc = Utils.GetClientById(kvp.Key)?.Character;
-                version_text +=
+                versionText +=
                     $"{kvp.Key}/{(pc?.PlayerId != null ? pc.PlayerId.ToString() : "null")}:{pc?.GetRealName(clientData: true) ?? "null"}:{kvp.Value.forkId}/{kvp.Value.version}({kvp.Value.tag})\n";
             }
 
-            if (version_text != "")
+            if (versionText != "")
             {
-                Utils.SendMessage(version_text, player.PlayerId);
+                Utils.SendMessage(versionText, player.PlayerId);
             }
         }
         catch (Exception e)
         {
             Logger.Error(e.Message, "/version");
-            version_text = "Error while getting version : " + e.Message;
-            if (version_text != "")
+            versionText = "Error while getting version : " + e.Message;
+            if (versionText != "")
             {
-                Utils.SendMessage(version_text, player.PlayerId);
+                Utils.SendMessage(versionText, player.PlayerId);
             }
         }
 
